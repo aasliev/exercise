@@ -9,12 +9,23 @@
 /* Begin PBXBuildFile section */
 		366C1AE7255E0FC300085C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1AE6255E0FC300085C7B /* AppDelegate.swift */; };
 		366C1AE9255E0FC300085C7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1AE8255E0FC300085C7B /* SceneDelegate.swift */; };
-		366C1AEB255E0FC300085C7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1AEA255E0FC300085C7B /* ViewController.swift */; };
 		366C1AEE255E0FC300085C7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366C1AEC255E0FC300085C7B /* Main.storyboard */; };
 		366C1AF0255E0FC400085C7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366C1AEF255E0FC400085C7B /* Assets.xcassets */; };
 		366C1AF3255E0FC400085C7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366C1AF1255E0FC400085C7B /* LaunchScreen.storyboard */; };
 		366C1AFE255E0FC400085C7B /* schedule_exerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1AFD255E0FC400085C7B /* schedule_exerciseTests.swift */; };
 		366C1B09255E0FC400085C7B /* schedule_exerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B08255E0FC400085C7B /* schedule_exerciseUITests.swift */; };
+		366C1B22255F160000085C7B /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B21255F15FF00085C7B /* GameDetails.swift */; };
+		366C1B27255F166D00085C7B /* TeamDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B26255F166D00085C7B /* TeamDetails.swift */; };
+		366C1B2C255F187E00085C7B /* YinzNodeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B2B255F187E00085C7B /* YinzNodeDetails.swift */; };
+		366C1B31255F19FB00085C7B /* FilterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B30255F19FB00085C7B /* FilterDetails.swift */; };
+		366C1B36255F1B3000085C7B /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B35255F1B3000085C7B /* GameList.swift */; };
+		366C1B492560873600085C7B /* TeamScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B482560873600085C7B /* TeamScheduleData.swift */; };
+		366C1B4E2560C9AD00085C7B /* ScheduledGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B4D2560C9AD00085C7B /* ScheduledGameTableViewController.swift */; };
+		366C1B532560CAD600085C7B /* ScheduledGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B522560CAD600085C7B /* ScheduledGameTableViewCell.swift */; };
+		366C1B6B2562254F00085C7B /* LabelFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C1B6A2562254F00085C7B /* LabelFonts.swift */; };
+		366C1B7325622ADC00085C7B /* MavenPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 366C1B7025622ADB00085C7B /* MavenPro-Bold.otf */; };
+		366C1B7425622ADC00085C7B /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 366C1B7125622ADC00085C7B /* LeagueGothic-Regular.otf */; };
+		366C1B7525622ADC00085C7B /* MavenPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 366C1B7225622ADC00085C7B /* MavenPro-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +49,6 @@
 		366C1AE3255E0FC300085C7B /* schedule_exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = schedule_exercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366C1AE6255E0FC300085C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		366C1AE8255E0FC300085C7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		366C1AEA255E0FC300085C7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		366C1AED255E0FC300085C7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		366C1AEF255E0FC400085C7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		366C1AF2255E0FC400085C7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +59,18 @@
 		366C1B04255E0FC400085C7B /* schedule_exerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = schedule_exerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		366C1B08255E0FC400085C7B /* schedule_exerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule_exerciseUITests.swift; sourceTree = "<group>"; };
 		366C1B0A255E0FC400085C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		366C1B21255F15FF00085C7B /* GameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
+		366C1B26255F166D00085C7B /* TeamDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetails.swift; sourceTree = "<group>"; };
+		366C1B2B255F187E00085C7B /* YinzNodeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YinzNodeDetails.swift; sourceTree = "<group>"; };
+		366C1B30255F19FB00085C7B /* FilterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetails.swift; sourceTree = "<group>"; };
+		366C1B35255F1B3000085C7B /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
+		366C1B482560873600085C7B /* TeamScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScheduleData.swift; sourceTree = "<group>"; };
+		366C1B4D2560C9AD00085C7B /* ScheduledGameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledGameTableViewController.swift; sourceTree = "<group>"; };
+		366C1B522560CAD600085C7B /* ScheduledGameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledGameTableViewCell.swift; sourceTree = "<group>"; };
+		366C1B6A2562254F00085C7B /* LabelFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFonts.swift; sourceTree = "<group>"; };
+		366C1B7025622ADB00085C7B /* MavenPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.otf"; sourceTree = "<group>"; };
+		366C1B7125622ADC00085C7B /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
+		366C1B7225622ADC00085C7B /* MavenPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +101,7 @@
 		366C1ADA255E0FC300085C7B = {
 			isa = PBXGroup;
 			children = (
+				366C1B6F25622A8900085C7B /* Fonts */,
 				366C1AE5255E0FC300085C7B /* schedule_exercise */,
 				366C1AFC255E0FC400085C7B /* schedule_exerciseTests */,
 				366C1B07255E0FC400085C7B /* schedule_exerciseUITests */,
@@ -101,10 +124,9 @@
 			children = (
 				366C1AE6255E0FC300085C7B /* AppDelegate.swift */,
 				366C1AE8255E0FC300085C7B /* SceneDelegate.swift */,
-				366C1AEA255E0FC300085C7B /* ViewController.swift */,
-				366C1AEC255E0FC300085C7B /* Main.storyboard */,
+				366C1B1D255E139600085C7B /* View */,
+				366C1B19255E137E00085C7B /* Controllers */,
 				366C1AEF255E0FC400085C7B /* Assets.xcassets */,
-				366C1AF1255E0FC400085C7B /* LaunchScreen.storyboard */,
 				366C1AF4255E0FC400085C7B /* Info.plist */,
 			);
 			path = schedule_exercise;
@@ -126,6 +148,49 @@
 				366C1B0A255E0FC400085C7B /* Info.plist */,
 			);
 			path = schedule_exerciseUITests;
+			sourceTree = "<group>";
+		};
+		366C1B19255E137E00085C7B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				366C1B522560CAD600085C7B /* ScheduledGameTableViewCell.swift */,
+				366C1B4725607F0B00085C7B /* JSON Struct */,
+				366C1B482560873600085C7B /* TeamScheduleData.swift */,
+				366C1B4D2560C9AD00085C7B /* ScheduledGameTableViewController.swift */,
+				366C1B6A2562254F00085C7B /* LabelFonts.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		366C1B1D255E139600085C7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				366C1AEC255E0FC300085C7B /* Main.storyboard */,
+				366C1AF1255E0FC400085C7B /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		366C1B4725607F0B00085C7B /* JSON Struct */ = {
+			isa = PBXGroup;
+			children = (
+				366C1B21255F15FF00085C7B /* GameDetails.swift */,
+				366C1B26255F166D00085C7B /* TeamDetails.swift */,
+				366C1B2B255F187E00085C7B /* YinzNodeDetails.swift */,
+				366C1B30255F19FB00085C7B /* FilterDetails.swift */,
+				366C1B35255F1B3000085C7B /* GameList.swift */,
+			);
+			path = "JSON Struct";
+			sourceTree = "<group>";
+		};
+		366C1B6F25622A8900085C7B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				366C1B7125622ADC00085C7B /* LeagueGothic-Regular.otf */,
+				366C1B7025622ADB00085C7B /* MavenPro-Bold.otf */,
+				366C1B7225622ADC00085C7B /* MavenPro-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +296,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366C1B7525622ADC00085C7B /* MavenPro-Regular.otf in Resources */,
+				366C1B7425622ADC00085C7B /* LeagueGothic-Regular.otf in Resources */,
 				366C1AF3255E0FC400085C7B /* LaunchScreen.storyboard in Resources */,
 				366C1AF0255E0FC400085C7B /* Assets.xcassets in Resources */,
+				366C1B7325622ADC00085C7B /* MavenPro-Bold.otf in Resources */,
 				366C1AEE255E0FC300085C7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,8 +326,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				366C1AEB255E0FC300085C7B /* ViewController.swift in Sources */,
+				366C1B532560CAD600085C7B /* ScheduledGameTableViewCell.swift in Sources */,
+				366C1B492560873600085C7B /* TeamScheduleData.swift in Sources */,
+				366C1B2C255F187E00085C7B /* YinzNodeDetails.swift in Sources */,
+				366C1B22255F160000085C7B /* GameDetails.swift in Sources */,
+				366C1B31255F19FB00085C7B /* FilterDetails.swift in Sources */,
+				366C1B4E2560C9AD00085C7B /* ScheduledGameTableViewController.swift in Sources */,
+				366C1B27255F166D00085C7B /* TeamDetails.swift in Sources */,
 				366C1AE7255E0FC300085C7B /* AppDelegate.swift in Sources */,
+				366C1B6B2562254F00085C7B /* LabelFonts.swift in Sources */,
+				366C1B36255F1B3000085C7B /* GameList.swift in Sources */,
 				366C1AE9255E0FC300085C7B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
