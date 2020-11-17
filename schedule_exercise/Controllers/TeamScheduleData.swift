@@ -18,11 +18,13 @@ class TeamScheduleData {
     private var teamInfo : TeamDetails?
     private var gameSchedule  = [GameSections]()
     private var JSONData : GameList?
-    private var numberOfGames : Int?
+//    private var numberOfGames : Int?
     private var currentYear : String?
-    //
+    
+    
     init(apiURL : String) {
         self.apiURL = apiURL
+        
     }
     
     // load JSON data from URL string
@@ -44,7 +46,6 @@ class TeamScheduleData {
     private func parse(jsonData: Data) {
         do {
             let decodedData = try JSONDecoder().decode(GameList.self, from: jsonData)
-//            print(decodedData.gameList.gameSection)
             JSONData =  decodedData
         } catch let err{
             print(err)
@@ -101,39 +102,14 @@ class TeamScheduleData {
                 self.parse(jsonData: data)
                 self.setTeamInfo()
                 self.setGameSchedule()
-                self.countGames()
+//                self.countGames()
                 self.setCurrentYear()
-                print("success")
                 completion(true)
             case .failure(let error):
                 print(error)
                 completion(false)
             }
         }
-    }
-    
-    
-    
-//     count number of games
-    private func countGames(){
-        var tmp = 0;
-        for section in gameSchedule{
-            if let gameArray = section.games{
-                tmp += gameArray.count
-//                for game in gameArray{
-//                    tmp += 1
-//                }
-            }
-        }
-        numberOfGames = tmp
-    }
-    
-    // get number of games
-    func gameCount() -> Int{
-        if let num = numberOfGames{
-            return num
-        }
-        return 0
     }
     
     func getGameSections ()->[GameSections]{
@@ -151,36 +127,29 @@ class TeamScheduleData {
         return currentYear
     }
     
-    func printTeamInfo(){
-        
-        print("============================")
-        print("Team Info : \(teamInfo?.name ?? "")")
-        print("-TriCode: \(teamInfo?.triCode ?? "")")
-    }
+//    func pringGameDetails(game: GameDetails){
+//        print("--------------------------")
+//        print("Type: \(game.type)")
+//        print("Week: \(game.week)")
+//        print("GameState: \(game.gameState ?? "")")
+//        print("AwayScore: \(game.awayScore ?? "")")
+//        print("HomeScore: \(game.homeScore ?? "")")
+//        print("isHOme: \(game.isHome)")
+//        print("date: \(game.date)")
+//        print("Opponent: \(game.opponent)")
+//    }
+//
     
-    func pringGameDetails(game: GameDetails){
-        print("--------------------------")
-        print("Type: \(game.type)")
-        print("Week: \(game.week)")
-        print("GameState: \(game.gameState ?? "")")
-        print("AwayScore: \(game.awayScore ?? "")")
-        print("HomeScore: \(game.homeScore ?? "")")
-        print("isHOme: \(game.isHome)")
-        print("date: \(game.date)")
-        print("Opponent: \(game.opponent)")
-    }
-    
-    
-    func printGameSections(){
-        for section in gameSchedule{
-            print("======================================================")
-            print(section.section!)
-            if let gameArray = section.games{
-                for game in gameArray{
-                    self.pringGameDetails(game: game)
-                }
-            }
-        }
-    }
-    
+//    func printGameSections(){
+//        for section in gameSchedule{
+//            print("======================================================")
+//            print(section.section!)
+//            if let gameArray = section.games{
+//                for game in gameArray{
+//                    self.pringGameDetails(game: game)
+//                }
+//            }
+//        }
+//    }
+//    
 }

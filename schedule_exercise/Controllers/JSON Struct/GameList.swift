@@ -15,14 +15,12 @@
 import Foundation
 
 struct GameSectionDetail: Codable {
-    var heading : String?;
-    var game :  GameUnion        //[GameDetails]
-    //var gameAsDictionary : GameDetails?
+    var heading : String?
+    var game :  GameUnion
     
     enum CodingKeys : String, CodingKey {
         case heading = "-Heading";
         case game = "Game";
-        //case gameAsDictionary
     }
     
 }
@@ -69,17 +67,13 @@ struct Filters : Codable{
 
 struct GameListDetails : Decodable{
     let team : TeamDetails;
-//    let defaultGameId : String?;
     let gameSection : [GameSectionDetail];
     let filters : Filters;
-//    let yinzNode : YinzNodeDetails;
     
     enum CodingKeys : String, CodingKey {
         case team = "Team"
-//        case defaultGameId = "DefaultGameId"
         case gameSection = "GameSection"
         case filters = "Filters"
-//        case yinzNode = "YinzNode"
     }
 }
 // MARK: - Structure of the JSON
