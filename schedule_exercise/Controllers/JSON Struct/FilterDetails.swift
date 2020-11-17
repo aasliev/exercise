@@ -25,18 +25,18 @@
 //    }
 //}
 //
-//struct FilterDetails : Codable {
+struct FilterDetails : Codable {
 //    let name : String?;
 //    let queryParameter : String?;
 //    let placeholder : String?;
-//    let current : String?;
+    let current : String?;
 //    let filterItems : FilterItemArray;
-//    
-//    enum CodingKeys : String, CodingKey {
+    
+    enum CodingKeys : String, CodingKey {
 //        case name = "-Name";
 //        case queryParameter = "-QueryParameter";
 //        case placeholder = "-Placeholder";
-//        case current = "-Current";
+        case current = "-Current";
 //        case filterItems = "FilterItems";
-//    }
-//}
+    }
+}

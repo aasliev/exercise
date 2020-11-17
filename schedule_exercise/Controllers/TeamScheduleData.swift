@@ -19,6 +19,7 @@ class TeamScheduleData {
     private var gameSchedule  = [GameSections]()
     private var JSONData : GameList?
     private var numberOfGames : Int?
+    private var currentYear : String?
     //
     init(apiURL : String) {
         self.apiURL = apiURL
@@ -85,6 +86,12 @@ class TeamScheduleData {
     }
     }
     
+    func setCurrentYear(){
+        if let year = JSONData?.gameList.filters.filter.current{
+            currentYear = year
+        }
+    }
+    
     // initialize all data
     func initData(completion: @escaping (Bool)->Void){
         // get json data
@@ -95,6 +102,7 @@ class TeamScheduleData {
                 self.setTeamInfo()
                 self.setGameSchedule()
                 self.countGames()
+                self.setCurrentYear()
                 print("success")
                 completion(true)
             case .failure(let error):
@@ -137,6 +145,10 @@ class TeamScheduleData {
             return teamInfo
         }
         return TeamDetails()
+    }
+    
+    func getCurrentYear()->String?{
+        return currentYear
     }
     
     func printTeamInfo(){

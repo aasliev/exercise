@@ -11,8 +11,9 @@ class LabelFonts {
     
     static let kTeamNameFont = UIFont(name: "LeagueGothic-Regular", size: 23) // aprox 40px
     static let kScoreFont = UIFont(name: "LeagueGothic-Regular", size: 34.5) // aprox 60px
-    static let k3RDLevelFont = UIFont(name: "MavenProRegular", size: 16.1) // aprox 28
+    static let kScoreFontScheduledGame = UIFont(name: "LeagueGothic-Regular", size: 16.1)
+    static let k3RDLevelFont = UIFont(name: "MavenProRegular", size: 16.1) // aprox 28px
     static let kBYEFont = UIFont(name: "LeagueGothic-Regular", size: 57.5)
-    
+    static let kHeaderFont = UIFont(name: "MavenProRegular", size: 16.1)
     
 }

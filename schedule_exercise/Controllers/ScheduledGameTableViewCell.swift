@@ -9,8 +9,8 @@ import UIKit
 
 class ScheduledGameTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var leftTeamName: UILabel!
-    @IBOutlet weak var rightTeamName: UILabel!
+    @IBOutlet weak var awayTeamName: UILabel!
+    @IBOutlet weak var homeTeamName: UILabel!
     @IBOutlet weak var homeScore: UILabel!
     @IBOutlet weak var awayScore: UILabel!
     @IBOutlet weak var time: UILabel!
@@ -18,21 +18,28 @@ class ScheduledGameTableViewCell: UITableViewCell {
     @IBOutlet weak var week: UILabel!
     @IBOutlet weak var homeTeamImage: UIImageView!
     @IBOutlet weak var awayTeamImage: UIImageView!
+    @IBOutlet weak var atSign: UILabel!
     @IBOutlet weak var BYEWeekLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        leftTeamName.font = LabelFonts.kTeamNameFont
-        rightTeamName.font = LabelFonts.kTeamNameFont
+        awayTeamName.font = LabelFonts.kTeamNameFont
+        homeTeamName.font = LabelFonts.kTeamNameFont
         homeScore.font = LabelFonts.kScoreFont
         awayScore.font = LabelFonts.kScoreFont
         time.font = LabelFonts.k3RDLevelFont
         gameState.font = LabelFonts.k3RDLevelFont
         week.font = LabelFonts.k3RDLevelFont
         week.textColor = UIColor(rgb: 0x999999)
+        atSign.textColor = UIColor(rgb: 0x999999)
+        
+//        cell.week.text = game?.week.uppercased()
+//        cell.BYEWeekLabel.text = "BYE"
         BYEWeekLabel.textColor = UIColor(rgb: 0x999999)
-        //BYEWeekLabel.font = LabelFonts.kBYEFont
+        BYEWeekLabel.font = LabelFonts.kBYEFont
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,6 +48,18 @@ class ScheduledGameTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    //if it's BYE week, call function to hide other labels
+    func hideLabels(){
+        self.atSign.isHidden = !self.BYEWeekLabel.isHidden
+        self.awayTeamName.isHidden = !self.BYEWeekLabel.isHidden
+        self.homeTeamName.isHidden = !self.BYEWeekLabel.isHidden
+        self.awayScore.isHidden = !self.BYEWeekLabel.isHidden
+        self.homeScore.isHidden = !self.BYEWeekLabel.isHidden
+        self.time.isHidden = !self.BYEWeekLabel.isHidden
+        self.gameState.isHidden = !self.BYEWeekLabel.isHidden
+        self.homeTeamImage.isHidden = !self.BYEWeekLabel.isHidden
+        self.awayTeamImage.isHidden = !self.BYEWeekLabel.isHidden
+    }
 }
 
 extension UIColor {

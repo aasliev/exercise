@@ -59,26 +59,26 @@ enum GameUnion : Codable {
 }
 
 
-//struct Filters : Codable{
-//    let filter : FilterDetails;
-//    
-//    enum CodingKeys : String, CodingKey {
-//        case filter = "Filter"
-//    }
-//}
+struct Filters : Codable{
+    let filter : FilterDetails;
+    
+    enum CodingKeys : String, CodingKey {
+        case filter = "Filter"
+    }
+}
 
 struct GameListDetails : Decodable{
     let team : TeamDetails;
 //    let defaultGameId : String?;
     let gameSection : [GameSectionDetail];
-//    let filters : Filters;
+    let filters : Filters;
 //    let yinzNode : YinzNodeDetails;
     
     enum CodingKeys : String, CodingKey {
         case team = "Team"
 //        case defaultGameId = "DefaultGameId"
         case gameSection = "GameSection"
-//        case filters = "Filters"
+        case filters = "Filters"
 //        case yinzNode = "YinzNode"
     }
 }

@@ -3,7 +3,6 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +28,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LeftTeam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09R-qg-Zxr" userLabel="leftTeamName">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awayTeam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09R-qg-Zxr" userLabel="awayTeamName">
                                             <rect key="frame" x="10" y="14" width="150" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="WfL-hI-jMp"/>
@@ -39,26 +38,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RightTeam" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKk-Ev-W83" userLabel="rightTeamName">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeTeam" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKk-Ev-W83" userLabel="homeTeamName">
                                             <rect key="frame" x="254" y="14" width="150" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="55N-ad-vVr"/>
                                                 <constraint firstAttribute="height" constant="22" id="nFK-TI-gLE"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTT-iz-ZUU">
-                                            <rect key="frame" x="199.66666666666666" y="35" width="15" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="9LO-OC-eeZ"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeScore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="865-vi-SAk" userLabel="homeScore">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTT-iz-ZUU">
+                                            <rect key="frame" x="199.66666666666666" y="42" width="15" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="9LO-OC-eeZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awayScore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="865-vi-SAk" userLabel="awayScore">
                                             <rect key="frame" x="10" y="42" width="92" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="92" id="YdB-Vl-Nbx"/>
@@ -68,7 +67,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="awayScore" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVZ-dh-uov">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="homeScore" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVZ-dh-uov" userLabel="homeScore">
                                             <rect key="frame" x="312" y="42" width="92" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="92" id="Hpj-8y-vQ2"/>
@@ -94,18 +93,18 @@
                                                 <constraint firstAttribute="width" constant="92" id="BQt-xM-IwL"/>
                                                 <constraint firstAttribute="height" constant="19.5" id="t83-J6-8PZ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-1g-kgI" userLabel="homeTeamImage">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-1g-kgI" userLabel="awayTeamImage">
                                             <rect key="frame" x="102" y="40" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="ILx-mg-cZv"/>
                                                 <constraint firstAttribute="height" constant="40" id="sUi-hf-I3u"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-fR-d1N" userLabel="awayTeamImage">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-fR-d1N" userLabel="homeTeamImage">
                                             <rect key="frame" x="272" y="40" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="97t-8X-1b1"/>
@@ -113,7 +112,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cu-lY-Hdg">
-                                            <rect key="frame" x="187" y="92.666666666666671" width="40" height="19.333333333333329"/>
+                                            <rect key="frame" x="187" y="85.666666666666671" width="40" height="19.333333333333329"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="19.5" id="fjA-za-A3e"/>
                                             </constraints>
@@ -121,9 +120,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BYE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJW-C0-Zx8">
+                                            <rect key="frame" x="191.66666666666666" y="49.666666666666664" width="31" height="20.999999999999993"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="oKk-Ev-W83" firstAttribute="top" secondItem="VI4-pQ-0dk" secondAttribute="top" constant="14" id="3H7-O3-sJm"/>
+                                        <constraint firstItem="nJW-C0-Zx8" firstAttribute="centerY" secondItem="VI4-pQ-0dk" secondAttribute="centerY" id="6nU-07-QaI"/>
+                                        <constraint firstItem="nJW-C0-Zx8" firstAttribute="centerX" secondItem="VI4-pQ-0dk" secondAttribute="centerX" id="7AJ-Ad-US2"/>
                                         <constraint firstItem="9cu-lY-Hdg" firstAttribute="centerX" secondItem="VI4-pQ-0dk" secondAttribute="centerX" id="9hZ-j9-Bkv"/>
                                         <constraint firstItem="09R-qg-Zxr" firstAttribute="leading" secondItem="VI4-pQ-0dk" secondAttribute="leading" constant="10" id="BFm-mt-g5Z"/>
                                         <constraint firstAttribute="bottom" secondItem="Ohm-fR-d1N" secondAttribute="bottom" constant="40" id="Fyb-Vr-xDr"/>
@@ -148,14 +155,15 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="BYEWeekLabel" destination="MTT-iz-ZUU" id="Aps-x9-fVX"/>
-                                    <outlet property="awayScore" destination="LVZ-dh-uov" id="qEt-oN-Une"/>
-                                    <outlet property="awayTeamImage" destination="Ohm-fR-d1N" id="mZl-nX-8Uk"/>
+                                    <outlet property="BYEWeekLabel" destination="nJW-C0-Zx8" id="m7T-ZG-ld5"/>
+                                    <outlet property="atSign" destination="MTT-iz-ZUU" id="yu0-mh-waB"/>
+                                    <outlet property="awayScore" destination="865-vi-SAk" id="zLw-dF-8Wr"/>
+                                    <outlet property="awayTeamImage" destination="shd-1g-kgI" id="flF-QF-AmD"/>
+                                    <outlet property="awayTeamName" destination="09R-qg-Zxr" id="Dv5-jj-Gud"/>
                                     <outlet property="gameState" destination="b90-Q1-hec" id="Neg-Jw-rdf"/>
-                                    <outlet property="homeScore" destination="865-vi-SAk" id="sKu-oI-1dQ"/>
-                                    <outlet property="homeTeamImage" destination="shd-1g-kgI" id="T0r-2W-cLB"/>
-                                    <outlet property="leftTeamName" destination="09R-qg-Zxr" id="hkR-of-c97"/>
-                                    <outlet property="rightTeamName" destination="oKk-Ev-W83" id="GWt-5Y-cjG"/>
+                                    <outlet property="homeScore" destination="LVZ-dh-uov" id="0u6-09-OoQ"/>
+                                    <outlet property="homeTeamImage" destination="Ohm-fR-d1N" id="FgA-vC-0Ab"/>
+                                    <outlet property="homeTeamName" destination="oKk-Ev-W83" id="Ieo-Jh-3fg"/>
                                     <outlet property="time" destination="R0H-an-JMg" id="Ih6-XI-1CN"/>
                                     <outlet property="week" destination="9cu-lY-Hdg" id="Um3-BI-W2Z"/>
                                 </connections>
@@ -178,21 +186,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4X-iM-EQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="923.1884057971015" y="3.3482142857142856"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="1dU-wk-eQq">
-            <objects>
-                <viewController id="FDB-g5-Smp" customClass="testViewController" customModule="schedule_exercise" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Vp3-yJ-Hhe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="L9G-CP-WtY"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyQ-Gk-2bM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-703" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tO0-wm-V2O">
@@ -222,9 +215,6 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
