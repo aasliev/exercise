@@ -18,13 +18,25 @@ class TeamScheduleData {
     private var teamInfo : TeamDetails?
     private var gameSchedule  = [GameSections]()
     private var JSONData : GameList?
-//    private var numberOfGames : Int?
     private var currentYear : String?
     
     
     init(apiURL : String) {
         self.apiURL = apiURL
-        
+        loadJSONData { (result) in
+            switch result{
+            case .success(let data):
+                self.parse(jsonData: data)
+                self.setTeamInfo()
+                self.setGameSchedule()
+                self.setCurrentYear()
+                print("init completed")
+            case .failure(let error):
+                print("Error loading data: \(error)")
+            
+            }
+            
+        }
     }
     
     // load JSON data from URL string
@@ -92,25 +104,7 @@ class TeamScheduleData {
             currentYear = year
         }
     }
-    
-    // initialize all data
-    func initData(completion: @escaping (Bool)->Void){
-        // get json data
-        self.loadJSONData { (result) in
-            switch result {
-            case .success(let data):
-                self.parse(jsonData: data)
-                self.setTeamInfo()
-                self.setGameSchedule()
-//                self.countGames()
-                self.setCurrentYear()
-                completion(true)
-            case .failure(let error):
-                print(error)
-                completion(false)
-            }
-        }
-    }
+
     
     func getGameSections ()->[GameSections]{
         return gameSchedule

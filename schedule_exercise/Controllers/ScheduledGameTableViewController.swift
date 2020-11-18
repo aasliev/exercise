@@ -21,9 +21,14 @@ class ScheduledGameTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // load dataObjects
+        self.scheduledGames = self.currentTeam.getGameSections()
+        self.teamInfo = self.currentTeam.getTeamInfo()
+        self.currentYear = self.currentTeam.getCurrentYear() ?? ""
+        
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x234E57)
-        self.reLoadData()
     }
 
     // MARK: - Table view data source
@@ -89,14 +94,16 @@ class ScheduledGameTableViewController: UITableViewController {
                 cell.awayTeamName.text = teamInfo.name
                 
                 //set up images---------
+//                cell.awayTeamImage.image = self.loadImage(triCode: teamInfo.triCode ?? "")
+//                cell.homeTeamImage.image = self.loadImage(triCode: game?.opponent?.triCode ?? "")
                 
             } else {
                 cell.homeTeamName.text = teamInfo.name
                 cell.awayTeamName.text = game?.opponent?.name
 
-//
-//                //set up images---------
-
+                //set up images---------
+//                cell.awayTeamImage.image = self.loadImage(triCode: game?.opponent?.triCode ?? "")
+//                cell.homeTeamImage.image = self.loadImage(triCode: teamInfo.triCode ?? "")
             }
             
             if (game?.type == "F"){
@@ -117,21 +124,21 @@ class ScheduledGameTableViewController: UITableViewController {
     }
     
     
-    // MARK: - Reload Data
-    func reLoadData(){
-        currentTeam.initData { (finished) in
-            if (finished){
-                self.scheduledGames = self.currentTeam.getGameSections()
-                self.teamInfo = self.currentTeam.getTeamInfo()
-                self.currentYear = self.currentTeam.getCurrentYear() ?? ""
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
+//    // MARK: - Reload Data
+//    func reLoadData(){
+//        currentTeam.initData { (finished) in
+//            if (finished){
+//                self.scheduledGames = self.currentTeam.getGameSections()
+//                self.teamInfo = self.currentTeam.getTeamInfo()
+//                self.currentYear = self.currentTeam.getCurrentYear() ?? ""
+//
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
+//
     
     
     // function to convert ISO8601 format timestamp to date
@@ -147,27 +154,6 @@ class ScheduledGameTableViewController: UITableViewController {
         }
         return time
     }
-
-    @IBAction func reloadPressed(_ sender: Any) {
-        self.tableView.reloadData()
-    }
     
-    
-    func fetchImage(from urlString: String, completionHandler: @escaping (_ data: Data?) -> ()) {
-        let session = URLSession.shared
-        let url = URL(string: urlString)
-            
-        let dataTask = session.dataTask(with: url!) { (data, response, error) in
-            if error != nil {
-                print("Error fetching the image!")
-                completionHandler(nil)
-            } else {
-                completionHandler(data)
-            }
-        }
-            
-        dataTask.resume()
-    }
-    
-
 }
+

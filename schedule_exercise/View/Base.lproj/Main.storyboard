@@ -97,14 +97,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nfl_phi_light" translatesAutoresizingMaskIntoConstraints="NO" id="shd-1g-kgI" userLabel="awayTeamImage">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-1g-kgI" userLabel="awayTeamImage">
                                             <rect key="frame" x="102" y="40" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="ILx-mg-cZv"/>
                                                 <constraint firstAttribute="height" constant="40" id="sUi-hf-I3u"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nfl_ten_light" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-fR-d1N" userLabel="homeTeamImage">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-fR-d1N" userLabel="homeTeamImage">
                                             <rect key="frame" x="272" y="40" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="97t-8X-1b1"/>
@@ -210,8 +210,6 @@
     </scenes>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-        <image name="nfl_phi_light" width="160" height="160"/>
-        <image name="nfl_ten_light" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
