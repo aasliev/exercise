@@ -97,14 +97,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-1g-kgI" userLabel="awayTeamImage">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-1g-kgI" userLabel="awayTeamImage" customClass="ImageLoaderClass" customModule="schedule_exercise" customModuleProvider="target">
                                             <rect key="frame" x="102" y="40" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="ILx-mg-cZv"/>
                                                 <constraint firstAttribute="height" constant="40" id="sUi-hf-I3u"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-fR-d1N" userLabel="homeTeamImage">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-fR-d1N" userLabel="homeTeamImage" customClass="ImageLoaderClass" customModule="schedule_exercise" customModuleProvider="target">
                                             <rect key="frame" x="272" y="40" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="97t-8X-1b1"/>

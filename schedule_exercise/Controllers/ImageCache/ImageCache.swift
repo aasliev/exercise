@@ -5,7 +5,7 @@
 //  Created by Asliddin Asliev on 11/16/20.
 //
 
-import Foundation
+//import Foundation
 import UIKit
 
 protocol ImageCacheType: class {
@@ -49,7 +49,7 @@ class ImageCache : ImageCacheType {
     func insert(_ image: UIImage?, for url: String) {
         //
         guard let image = image else {
-            return //removeImage(for: url)
+            return removeImage(for: url)
         }
         
         imageCache.setObject(image, forKey: url as NSString)

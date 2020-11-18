@@ -77,6 +77,8 @@ class ScheduledGameTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! ScheduledGameTableViewCell
         let game = scheduledGames[indexPath.section].games?[indexPath.row]
         
+//        print("Week: \(game?.week) type \(game?.type)")
+
         if (game?.type == "B"){
             cell.BYEWeekLabel.isHidden = false
             cell.hideLabels()
@@ -97,18 +99,51 @@ class ScheduledGameTableViewController: UITableViewController {
                 // current team is playing away
                 cell.homeTeamName.text = game?.opponent?.name
                 cell.awayTeamName.text = teamInfo.name
-                // load logos
-                cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
-                cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
+                  
+//                cell.homeTeamImage.loadImge(withTriCode: game?.opponent?.triCode ?? "")
+//                cell.awayTeamImage.loadImge(withTriCode: teamInfo.triCode ?? "")
+//
+                
+                //ImageLoader attempt
+//                cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
+//                cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
 
+//                print("finished function call")
+                
+                //IMageLoaderClass with UIImageView extension attempt
+//                cell.homeTeamImage.loadImage(withTriCode: game?.opponent?.triCode ?? "")
+//                cell.awayTeamImage.loadImage(withTriCode: teamInfo.triCode ?? "")
+
+                // get linsk for logo with trycode
+                let homeTeamLink = self.getLogoLink(withTriCode: game?.opponent?.triCode)
+                let awayTeamLink = self.getLogoLink(withTriCode: teamInfo.triCode)
+                cell.homeTeamImage.loadImage(fromUrl: homeTeamLink)
+                cell.awayTeamImage.loadImage(fromUrl: awayTeamLink)
+                
                 
             } else {
                 cell.homeTeamName.text = teamInfo.name
                 cell.awayTeamName.text = game?.opponent?.name
+
+//                cell.homeTeamImage.loadImge(withTriCode: teamInfo.triCode ?? "")
+//                cell.awayTeamImage.loadImge(withTriCode: game?.opponent?.triCode ?? "")
+                    
                 
-                //load logos
-                cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
-                cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
+                
+                
+                //
+//                cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
+//                cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
+                
+                //ImageLoaderClass with UIImageView extension attemp
+//                cell.homeTeamImage.loadImage(withTriCode: teamInfo.triCode ?? "")
+//                cell.awayTeamImage.loadImage(withTriCode: game?.opponent?.triCode ?? "")
+                
+                
+                let homeTeamLink = self.getLogoLink(withTriCode: teamInfo.triCode)
+                let awayTeamLink = self.getLogoLink(withTriCode: game?.opponent?.triCode)
+                cell.homeTeamImage.loadImage(fromUrl: homeTeamLink)
+                cell.awayTeamImage.loadImage(fromUrl: awayTeamLink)
 
             }
             
@@ -150,4 +185,42 @@ class ScheduledGameTableViewController: UITableViewController {
         print("--------------------------------------")
     }
     
+    func getLogoLink(withTriCode triCode: String?)->String{
+        return "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode!.lowercased())_light.png"
+    }
+    
 }
+
+//
+//extension UIImageView {
+//    
+//    
+//    func loadImge(withTriCode triCode: String) {
+//        let urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
+//        var isLoaded : Bool = false
+//        //check cache if image is already downloaded
+//        if let image = cache[urlString as NSString] {
+//            print("cache hit ---> \(triCode)  ")
+//            DispatchQueue.main.async {[weak self] in
+//                self?.image =  image
+//                isLoaded = true
+//            }
+//        }
+//        if (!isLoaded){
+//        guard let url = URL(string: urlString) else {return}
+//           DispatchQueue.global().async { [weak self] in
+//               if let imageData = try? Data(contentsOf: url) {
+//                   if let image = UIImage(data: imageData) {
+//                       DispatchQueue.main.async {
+//                        cache.insert(image, for: urlString)
+//                        print("cache miss. loading logo from url ----> \(triCode)")
+//                        self?.image = image
+//                       }
+////                    cache[urlString as NSString] = image
+//
+//                   }
+//               }
+//           }
+//        }
+//       }
+//}

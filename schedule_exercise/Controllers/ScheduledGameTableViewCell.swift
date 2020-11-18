@@ -16,8 +16,8 @@ class ScheduledGameTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var gameState: UILabel!
     @IBOutlet weak var week: UILabel!
-    @IBOutlet weak var homeTeamImage: UIImageView!
-    @IBOutlet weak var awayTeamImage: UIImageView!
+    @IBOutlet weak var homeTeamImage: ImageLoaderClass!//UIImageView!
+    @IBOutlet weak var awayTeamImage: ImageLoaderClass!//UIImageView!
     @IBOutlet weak var atSign: UILabel!
     @IBOutlet weak var BYEWeekLabel: UILabel!
     

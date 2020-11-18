@@ -120,30 +120,4 @@ class TeamScheduleData {
     func getCurrentYear()->String?{
         return currentYear
     }
-    
-//    func pringGameDetails(game: GameDetails){
-//        print("--------------------------")
-//        print("Type: \(game.type)")
-//        print("Week: \(game.week)")
-//        print("GameState: \(game.gameState ?? "")")
-//        print("AwayScore: \(game.awayScore ?? "")")
-//        print("HomeScore: \(game.homeScore ?? "")")
-//        print("isHOme: \(game.isHome)")
-//        print("date: \(game.date)")
-//        print("Opponent: \(game.opponent)")
-//    }
-//
-    
-//    func printGameSections(){
-//        for section in gameSchedule{
-//            print("======================================================")
-//            print(section.section!)
-//            if let gameArray = section.games{
-//                for game in gameArray{
-//                    self.pringGameDetails(game: game)
-//                }
-//            }
-//        }
-//    }
-//    
 }
