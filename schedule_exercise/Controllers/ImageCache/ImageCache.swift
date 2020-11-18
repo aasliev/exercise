@@ -34,7 +34,7 @@ class ImageCache : ImageCacheType {
     
     private let cacheCountLimit: Int
     
-    init(countLimit: Int = 20) {
+    init(countLimit: Int = 100) {
         self.cacheCountLimit = countLimit
     }
     
@@ -49,7 +49,7 @@ class ImageCache : ImageCacheType {
     func insert(_ image: UIImage?, for url: String) {
         //
         guard let image = image else {
-            return removeImage(for: url)
+            return //removeImage(for: url)
         }
         
         imageCache.setObject(image, forKey: url as NSString)

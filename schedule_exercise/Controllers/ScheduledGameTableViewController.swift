@@ -8,6 +8,7 @@
 import UIKit
 
 let urlString : String = "http://files.yinzcam.com.s3.amazonaws.com/iOS/interviews/ScheduleExercise/schedule.json";
+let cache = ImageCache()
 
 
 class ScheduledGameTableViewController: UITableViewController {
@@ -29,10 +30,12 @@ class ScheduledGameTableViewController: UITableViewController {
         
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x234E57)
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
 
         }
+        
     }
 
     // MARK: - Table view data source
@@ -74,8 +77,6 @@ class ScheduledGameTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! ScheduledGameTableViewCell
         let game = scheduledGames[indexPath.section].games?[indexPath.row]
         
-//        print("Week: \(game?.week) type \(game?.type)")
-
         if (game?.type == "B"){
             cell.BYEWeekLabel.isHidden = false
             cell.hideLabels()
@@ -96,32 +97,19 @@ class ScheduledGameTableViewController: UITableViewController {
                 // current team is playing away
                 cell.homeTeamName.text = game?.opponent?.name
                 cell.awayTeamName.text = teamInfo.name
-                
-//                print("function call")
-                //cell.homeTeamImage.image = URLImageModel(triCode: game?.opponent?.triCode ?? "").image
+                // load logos
                 cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
                 cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
 
-//                print("finished function call")
-//                cell.awayTeamImage.image = URLImageModel(triCode: teamInfo.triCode ?? "").image
-
-                //set up images---------
-//                cell.awayTeamImage.loadImge(withTriCode: teamInfo.triCode ?? "")
-//                cell.homeTeamImage.loadImge(withTriCode: game?.opponent?.triCode ?? "")
                 
             } else {
                 cell.homeTeamName.text = teamInfo.name
                 cell.awayTeamName.text = game?.opponent?.name
-
                 
-//                cell.homeTeamImage.image = URLImageModel(triCode: teamInfo.triCode ?? "").image
-//                cell.awayTeamImage.image = URLImageModel(triCode: game?.opponent?.triCode ?? "").image
+                //load logos
                 cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
                 cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
 
-                //set up images---------
-//                cell.awayTeamImage.loadImge(withTriCode: game?.opponent?.triCode ?? "")
-//                cell.homeTeamImage.loadImge(withTriCode: teamInfo.triCode ?? "")
             }
             
             if (game?.type == "F"){
@@ -156,21 +144,10 @@ class ScheduledGameTableViewController: UITableViewController {
         return time
     }
     
-}
-
-
-extension UIImageView {
-    func loadImge(withTriCode triCode: String) {
-        let urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
-        guard let url = URL(string: urlString) else {return}
-           DispatchQueue.global().async { [weak self] in
-               if let imageData = try? Data(contentsOf: url) {
-                   if let image = UIImage(data: imageData) {
-                       DispatchQueue.main.async {
-                           self?.image = image
-                       }
-                   }
-               }
-           }
-       }
+    
+    
+    @IBAction func checkPrint(_ sender: Any) {
+        print("--------------------------------------")
+    }
+    
 }
