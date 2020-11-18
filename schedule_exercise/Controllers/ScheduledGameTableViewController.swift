@@ -29,6 +29,10 @@ class ScheduledGameTableViewController: UITableViewController {
         
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x234E57)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+
+        }
     }
 
     // MARK: - Table view data source
@@ -93,17 +97,31 @@ class ScheduledGameTableViewController: UITableViewController {
                 cell.homeTeamName.text = game?.opponent?.name
                 cell.awayTeamName.text = teamInfo.name
                 
+//                print("function call")
+                //cell.homeTeamImage.image = URLImageModel(triCode: game?.opponent?.triCode ?? "").image
+                cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
+                cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
+
+//                print("finished function call")
+//                cell.awayTeamImage.image = URLImageModel(triCode: teamInfo.triCode ?? "").image
+
                 //set up images---------
-//                cell.awayTeamImage.image = self.loadImage(triCode: teamInfo.triCode ?? "")
-//                cell.homeTeamImage.image = self.loadImage(triCode: game?.opponent?.triCode ?? "")
+//                cell.awayTeamImage.loadImge(withTriCode: teamInfo.triCode ?? "")
+//                cell.homeTeamImage.loadImge(withTriCode: game?.opponent?.triCode ?? "")
                 
             } else {
                 cell.homeTeamName.text = teamInfo.name
                 cell.awayTeamName.text = game?.opponent?.name
 
+                
+//                cell.homeTeamImage.image = URLImageModel(triCode: teamInfo.triCode ?? "").image
+//                cell.awayTeamImage.image = URLImageModel(triCode: game?.opponent?.triCode ?? "").image
+                cell.homeTeamImage.image = ImageLoader.shared.loadImage(withTriCode: teamInfo.triCode ?? "" )
+                cell.awayTeamImage.image = ImageLoader.shared.loadImage(withTriCode: game?.opponent?.triCode ?? "" )
+
                 //set up images---------
-//                cell.awayTeamImage.image = self.loadImage(triCode: game?.opponent?.triCode ?? "")
-//                cell.homeTeamImage.image = self.loadImage(triCode: teamInfo.triCode ?? "")
+//                cell.awayTeamImage.loadImge(withTriCode: game?.opponent?.triCode ?? "")
+//                cell.homeTeamImage.loadImge(withTriCode: teamInfo.triCode ?? "")
             }
             
             if (game?.type == "F"){
@@ -124,23 +142,6 @@ class ScheduledGameTableViewController: UITableViewController {
     }
     
     
-//    // MARK: - Reload Data
-//    func reLoadData(){
-//        currentTeam.initData { (finished) in
-//            if (finished){
-//                self.scheduledGames = self.currentTeam.getGameSections()
-//                self.teamInfo = self.currentTeam.getTeamInfo()
-//                self.currentYear = self.currentTeam.getCurrentYear() ?? ""
-//
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//    }
-//
-    
-    
     // function to convert ISO8601 format timestamp to date
     func convertISO8601ToDate(timestamp: String) -> [String]{
         let formatterInput = ISO8601DateFormatter()
@@ -157,3 +158,19 @@ class ScheduledGameTableViewController: UITableViewController {
     
 }
 
+
+extension UIImageView {
+    func loadImge(withTriCode triCode: String) {
+        let urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
+        guard let url = URL(string: urlString) else {return}
+           DispatchQueue.global().async { [weak self] in
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       DispatchQueue.main.async {
+                           self?.image = image
+                       }
+                   }
+               }
+           }
+       }
+}

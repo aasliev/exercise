@@ -13,7 +13,9 @@ class URLImageModel: ObservableObject {
     
     init(triCode : String) {
         self.triCode = triCode
-        self.urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode)_light.png"
+        self.urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
+        print("init for \(triCode)")
+        loadImage()
     }
     
     func loadImage() {
@@ -27,28 +29,44 @@ class URLImageModel: ObservableObject {
        }
     
     func loadImageFromUrl() {
-            let url = URL(string: urlString)!
-            let task = URLSession.shared.dataTask(with: url, completionHandler: getImageFromResponse(data:response:error:))
-            task.resume()
-        }
+        //let urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
+        guard let url = URL(string: urlString) else {return}
+           DispatchQueue.global().async { [weak self] in
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       DispatchQueue.main.async {
+                        print("success: image is set")
+                           self?.image = image
+                       }
+                   }
+               }
+           }
+       }
     
-    func getImageFromResponse(data: Data?, response: URLResponse?, error: Error?) {
-            guard error == nil else {
-                print("Error: \(error!)")
-                return
-            }
-            guard let data = data else {
-                print("No data found")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                guard let loadedImage = UIImage(data: data) else {
-                    return
-                }
-                
-//                self.imageCache.set(forKey: self.urlString!, image: loadedImage)
-                self.image = loadedImage
-            }
-        }
+//    func loadImageFromUrl() {
+//            let url = URL(string: urlString)!
+//            let task = URLSession.shared.dataTask(with: url, completionHandler: getImageFromResponse(data:response:error:))
+//            task.resume()
+//        }
+//
+//    func getImageFromResponse(data: Data?, response: URLResponse?, error: Error?) {
+//            guard error == nil else {
+//                print("Error: \(error!)")
+//                return
+//            }
+//            guard let data = data else {
+//                print("No data found")
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                print("check")
+//                guard let loadedImage = UIImage(data: data) else {
+//                    return
+//                }
+//
+////                self.imageCache.set(forKey: self.urlString!, image: loadedImage)
+//                self.image = loadedImage
+//            }
+//        }
 }

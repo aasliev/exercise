@@ -12,31 +12,46 @@ import Combine
 public final class ImageLoader {
     public static let shared = ImageLoader()
 
-    private let cache: ImageCacheType
-    private lazy var backgroundQueue: OperationQueue = {
-        let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 5
-        return queue
-    }()
-
-    public init(cache: ImageCacheType = ImageCache()) {
-        self.cache = cache
-    }
-
-    public func loadImage(from url: URL) -> AnyPublisher<UIImage?, Never> {
-        if let image = cache[url] {
-            return Just(image).eraseToAnyPublisher()
+    var image : UIImage?
+    private let cache = ImageCache()
+    
+    func loadImage(withTriCode triCode: String) -> UIImage? {
+        // check if we have the image in cache
+        let urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
+        if let image = cache[urlString as NSString] {
+            print("cache hit ---> \(triCode)  ")
+            return image
         }
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { (data, response) -> UIImage? in return UIImage(data: data) }
-            .catch { error in return Just(nil) }
-            .handleEvents(receiveOutput: {[unowned self] image in
-                guard let image = image else { return }
-                self.cache[url] = image
-            })
-            .print("Image loading \(url):")
-            .subscribe(on: backgroundQueue)
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        print("cache miss. loading image from url -----> \(triCode)")
+        return self.loadImge(withTriCode: triCode)
+
     }
+//    func loadImageFromCache(for url: String)->Bool{
+//        guard  let cacheImage = cache.image(for: url) else {
+//            return false
+//        }
+//        return true
+//    }
+    
+    
+    func loadImge(withTriCode triCode: String) -> UIImage? {
+        let urlString = "http://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_\(triCode.lowercased())_light.png"
+        guard let url = URL(string: urlString) else {return nil}
+        DispatchQueue.global().async { [weak self] in
+        //DispatchQueue.main.async {
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       //DispatchQueue.main.async {
+                           self?.image = image
+                    self?.cache.insert(image, for: urlString)
+//                        return image
+                       }
+                   }
+        }
+        if let img = image{
+            return img
+        }
+        return nil
+       }
 }
+

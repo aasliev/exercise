@@ -23,7 +23,7 @@ class TeamScheduleData {
     
     init(apiURL : String) {
         self.apiURL = apiURL
-        loadJSONData { (result) in
+        self.loadJSONData { (result) in
             switch result{
             case .success(let data):
                 self.parse(jsonData: data)
