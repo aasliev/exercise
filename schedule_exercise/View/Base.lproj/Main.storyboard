@@ -177,9 +177,6 @@
                     <navigationItem key="navigationItem" title="SCHEDULE" id="dJe-pG-5FA">
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="LAt-hB-Q10">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="checkPrint:" destination="B36-Rh-KDV" id="1cU-wp-cQx"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

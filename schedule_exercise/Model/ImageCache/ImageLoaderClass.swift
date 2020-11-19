@@ -13,6 +13,7 @@ class ImageLoaderClass: UIImageView{
     var imageUrlString : String?
 
     func loadImage(fromUrl urlString : String){
+        image = nil
         imageUrlString = urlString
         if let cacheImage = cache[urlString as NSString] {
             self.image = cacheImage

@@ -7,6 +7,7 @@
 
 import UIKit
 
+//class to store all font designs
 class LabelFonts {
     
     static let kTeamNameFont = UIFont(name: "LeagueGothic-Regular", size: 23) // aprox 40px

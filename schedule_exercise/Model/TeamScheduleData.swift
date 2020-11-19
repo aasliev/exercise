@@ -20,7 +20,10 @@ class TeamScheduleData {
     private var JSONData : GameList?
     private var currentYear : String?
     
-    
+    // initialize the class
+    // 1. load data from JSON
+    // 2. parse data to object
+    // 3. simplify the objects structure
     init(apiURL : String) {
         self.apiURL = apiURL
         self.loadJSONData { (result) in
@@ -30,7 +33,7 @@ class TeamScheduleData {
                 self.setTeamInfo()
                 self.setGameSchedule()
                 self.setCurrentYear()
-                print("init completed")
+//                print("init completed")
             case .failure(let error):
                 print("Error loading data: \(error)")
             
@@ -77,9 +80,7 @@ class TeamScheduleData {
     }
     
     // set gameSchedude for the same reason as teamInfo
-    // in case of gameSchedule i think it's more necessary because the structure
-    // goes deaper
-    
+    // create an array of section, with array of games(scheduled games for the section)
     private func setGameSchedule(){
         var gameArray  = [GameDetails]()
         if let sections = JSONData?.gameList.gameSection {
@@ -99,24 +100,26 @@ class TeamScheduleData {
     }
     }
     
+    // retrive current year from filters
     func setCurrentYear(){
         if let year = JSONData?.gameList.filters.filter.current{
             currentYear = year
         }
     }
 
-    
+    //return schduled games
     func getGameSections ()->[GameSections]{
         return gameSchedule
     }
     
+    //return team info
     func getTeamInfo () -> TeamDetails {
         if let teamInfo = teamInfo{
             return teamInfo
         }
         return TeamDetails()
     }
-    
+    //return current year
     func getCurrentYear()->String?{
         return currentYear
     }
